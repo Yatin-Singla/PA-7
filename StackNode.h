@@ -2,6 +2,8 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <ctime>
+#include <sstream>
 
 using namespace std;
 
@@ -14,9 +16,13 @@ class StackNode
 	//both classes pertain to single person, so this design concept
 	// was implemented.
 	friend class ListNode;
+public:
 	//constructor
 	StackNode(string newDate = "");
+	
+	//copy constructor
 	StackNode(const StackNode &newNode);
+	
 	//destructor
 	~StackNode();
 
@@ -26,6 +32,8 @@ class StackNode
 
 	//setter
 	void setDate(string newDate);
+	void setNext(StackNode *pMem);
+	
 private:
 	string Date;
 	StackNode * pNext;

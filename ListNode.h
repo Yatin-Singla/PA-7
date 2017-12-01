@@ -3,6 +3,7 @@
 #include <string>
 #include <fstream>
 #include "StackNode.h"
+#include <ctime>
 
 using namespace std;
 
@@ -14,8 +15,11 @@ number of absence and a stack to store the date of their absences.*/
 
 class ListNode
 {
+public:
+	friend class MasterList;
 	//constructor
 	ListNode();
+	//destructor
 	~ListNode();
 	//getters
 	int getRecordNumber() const;
@@ -25,6 +29,8 @@ class ListNode
 	string getUnits() const;
 	string getMajor() const;
 	string getLevel() const;
+	int getAbsence() const;
+	ListNode * getpNext() const ;
 
 	//setters
 	void setRecordNumber(int NewRecordNumber);
@@ -34,6 +40,15 @@ class ListNode
 	void setUnits(string newUnits);
 	void setMajor(string newMajor);
 	void setLevel(string newLevel);
+	void setAbsences(int Absences);
+	
+	//non convential member functions
+	void push(StackNode *&Mem);
+	void pop();
+	string peek();
+	bool isEmpty();
+	void removeDate(StackNode *&date);
+	void insertInOrder(StackNode *& date);
 
 private:
 	int RecordNumber;

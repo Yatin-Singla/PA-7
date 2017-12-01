@@ -27,3 +27,9 @@ void StackNode::setDate(string newDate)
 {
 	Date = newDate;
 }
+
+void StackNode::setNext(StackNode *pMem)
+{
+	pNext = pMem;
+}
+
